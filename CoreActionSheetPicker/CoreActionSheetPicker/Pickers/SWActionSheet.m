@@ -89,8 +89,8 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
     else
     {
         UIWindow *window = nil;
-
-// Handle UIWindow for iOS 13 changes
+        
+        // Handle UIWindow for iOS 13 changes
 #if defined(__IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
             UIScene *scene = [UIApplication sharedApplication].connectedScenes.allObjects.firstObject;
@@ -100,15 +100,20 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
             }
         }
 #endif
-
+        
         if (window == nil) {
             window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
         }
-
+        
         window.windowLevel        = self.windowLevel;
         window.backgroundColor    = [UIColor clearColor];
         window.rootViewController = [SWActionSheetVC new];
-
+        
+        // force light mode
+        if (@available(iOS 13.0, *)) {
+            window.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+        }
+        
         SWActionSheetWindow = window;
         return SWActionSheetWindow;
     }
