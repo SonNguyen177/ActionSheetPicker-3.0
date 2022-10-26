@@ -133,6 +133,7 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
         _bgView = [UIView new];
 
 // Support iOS 13 Dark Mode - support dynamic background color in iOS 13
+        /*
 #if defined(__IPHONE_13_0)
         if (@available(iOS 13.0, *)) {
             _bgView.backgroundColor = [UIColor systemBackgroundColor];
@@ -143,6 +144,9 @@ static const enum UIViewAnimationOptions options = UIViewAnimationOptionCurveEas
 #else
         _bgView.backgroundColor = [UIColor colorWithRed:247.f/255.f green:247.f/255.f blue:247.f/255.f alpha:1.0f];
 #endif
+         */
+        // always light mode
+        _bgView.backgroundColor = [UIColor colorWithRed:247.f/255.f green:247.f/255.f blue:247.f/255.f alpha:1.0f];
         [self addSubview:_bgView];
         [self addSubview:view];
     }
