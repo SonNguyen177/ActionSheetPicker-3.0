@@ -66,9 +66,12 @@ DerivedData/
 xcuserdata/
 
 ## Other
-*.moved-aside
 *.xccheckout
 *.xcscmblueprint
+*.moved-aside
+DerivedData
+*.xcuserstate
+node_modules/
 
 ### Xcode Patch ###
 *.xcodeproj/*
@@ -101,3 +104,6 @@ xcuserdata/
 
 
 # End of https://www.gitignore.io/api/microsoftoffice
+
+### Swift Package Manager ###
+.build/
