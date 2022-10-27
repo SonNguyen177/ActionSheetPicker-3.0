@@ -134,7 +134,11 @@
     if (self) {
         self.title = title;
         self.datePickerMode = datePickerMode;
-        self.selectedDate = selectedDate;
+        if (selectedDate == nil) {
+            self.selectedDate = [[NSDate alloc] init];
+        } else {
+            self.selectedDate = selectedDate;
+        }
     }
     return self;
 }
@@ -145,7 +149,11 @@
     if (self) {
         self.title = title;
         self.datePickerMode = datePickerMode;
-        self.selectedDate = selectedDate;
+        if (selectedDate == nil) {
+            self.selectedDate = [[NSDate alloc] init];
+        } else {
+            self.selectedDate = selectedDate;
+        }
         self.minimumDate = minimumDate;
         self.maximumDate = maximumDate;
     }
