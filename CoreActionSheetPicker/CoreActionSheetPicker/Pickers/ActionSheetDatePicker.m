@@ -134,8 +134,18 @@
     if (self) {
         self.title = title;
         self.datePickerMode = datePickerMode;
+        
+        // iOS 12 lỗi nếu selectedDate = nil
+        // iOS 14 mode inline thì ko set selectedDate mặc định vì ko set lại được
+        
         if (selectedDate == nil) {
-            self.selectedDate = [[NSDate alloc] init];
+            if (@available(iOS 14.0, *)) {
+                if (_datePickerStyle == UIDatePickerStyleInline) {
+                    // không set mặc định
+                }
+            } else {
+                self.selectedDate = [[NSDate alloc] init];
+            }
         } else {
             self.selectedDate = selectedDate;
         }
@@ -149,8 +159,18 @@
     if (self) {
         self.title = title;
         self.datePickerMode = datePickerMode;
+        
+        // iOS 12 lỗi nếu selectedDate = nil
+        // iOS 14 mode inline thì ko set selectedDate mặc định vì ko set lại được
+        
         if (selectedDate == nil) {
-            self.selectedDate = [[NSDate alloc] init];
+            if (@available(iOS 14.0, *)) {
+                if (_datePickerStyle == UIDatePickerStyleInline) {
+                    // không set mặc định
+                }
+            } else {
+                self.selectedDate = [[NSDate alloc] init];
+            }
         } else {
             self.selectedDate = selectedDate;
         }
